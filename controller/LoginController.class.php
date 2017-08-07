@@ -3,6 +3,7 @@
       
        function login(){
         global $smarty;
+        $_SESSION["login"] = 1;
         
         return $smarty->fetch("dashboard.tpl");
       }

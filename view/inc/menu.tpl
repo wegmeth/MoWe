@@ -1,8 +1,8 @@
 <nav id="nav">
     <ul class="navbar">
-      <li><a href="default.asp">Trips</a></li>
-      <li><a href="news.asp">Neuen Trip planen</a></li>
-      <li><a href="contact.asp">Profil</a></li>
-      <li><a href="about.asp">Impressum</a></li>
+      <li><a href="index.php#trip/show" class="link">Trips</a></li>
+      <li><a href="index.php#trip/newTrip">Neuen Trip planen</a></li>
+      <li><a href="index.php#profile/show">Profil</a></li>
+      <li><a href="index.php#impress/show">Impressum</a></li>
     </ul>
 </nav>

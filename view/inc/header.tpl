@@ -10,3 +10,4 @@
 </head>
 <body>
 <div class="header" ></div>
+<div id="content" ></div>

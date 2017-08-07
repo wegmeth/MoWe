@@ -19,6 +19,7 @@
         <input class="btn-default" type="submit" value="Login" name="send" />
         
         <input type="hidden" value="login" name="action" />
+        <input type="hidden" value="login" name="namespace" />
     
     </form>
 </div>

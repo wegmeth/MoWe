@@ -2,6 +2,8 @@
 session_start();
 
 require("config.php");
+require("model/Member.class.php");
+
   $err_msg;
   $warn_msg;
 
@@ -36,7 +38,13 @@ require("config.php");
           try {
               $pdo = new PDO( $db_dsn, $db_username, $db_passwrd);
 
-              //TODO: User-Insert
+              $statement = $pdo->prepare("INSERT INTO member ('name','email','password') values(?,?,?)");
+              $statement->bindParam($username, $email, $hash);
+              $statement->execute();
+
+              $conn->close();
+              $success_msg = "Submitted data.";
+
 
           } catch (PDOException $e){
               print "Error!: " . $e->getMessage() . "<br/>";

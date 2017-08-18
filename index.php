@@ -48,7 +48,7 @@ if (isset($_SESSION["login"])) {
 
         $output = $header . $menu . $output . $footer;
     } else {
-        $output = $login->show();
+        $output = $login->showLogin();
     }
 
 }

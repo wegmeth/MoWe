@@ -4,15 +4,23 @@
        function login(){
         global $smarty;
         $_SESSION["login"] = 1;
+
+        $ret = array("html" =>  $smarty->fetch("dashboard.tpl"));
         
-        return $smarty->fetch("dashboard.tpl");
+        return json_encode($ret);;
       }
       
-      function show(){
+      function showLogin(){
         global $smarty;
-        
-        return $smarty->fetch("login.tpl");
+
+        $ret = array("html" =>  $smarty->fetch("login.tpl"));
+
+        return $ret;
       }
-      
+
+      function  logout(){
+          session_destroy ();
+          return $this->showLogin();
+      }
   }
 ?>

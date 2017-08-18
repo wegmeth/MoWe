@@ -8,6 +8,7 @@
 
 class ProfileController{
     function show(){
+
         return "profil";
     }
 }

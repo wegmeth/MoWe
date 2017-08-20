@@ -14,15 +14,19 @@ $smarty->setCompileDir('etc/smarty/templates_c');
 $smarty->setCacheDir('etc/smarty/cache');
 $smarty->setConfigDir('etc/smarty/configs');
 
-if (isset($_POST["action"]) && isset($_POST["namespace"])) {
-    $action = $_POST["action"];
-    $ns = $_POST["namespace"];
-} else {
-    $ns = "login";
-    $action = "showLogin";
+$header = $smarty->fetch("inc/header.tpl");
+$menu = $smarty->fetch("inc/menu.tpl");
+$footer = $smarty->fetch("inc/footer.tpl");
+
+if (!isset($_SESSION["login"])) {
+    header('Location: login.php');
+    exit;
 }
 
-if (isset($_SESSION["login"])) {
+if (isset($_POST["action"]) && isset($_POST["namespace"])) {
+
+    $action = $_POST["action"];
+    $ns = $_POST["namespace"];
 
     $class = ucfirst($ns)."Controller";
     $object = new $class();
@@ -30,27 +34,12 @@ if (isset($_SESSION["login"])) {
     $output = call_user_func_array(array($object, $action), $_POST);
 
     if (!isset($_POST["ajax"])) {
-        $header = $smarty->fetch("inc/header.tpl");
-        $menu = $smarty->fetch("inc/menu.tpl");
-        $footer = $smarty->fetch("inc/footer.tpl");
-
         $output = $header . $menu . $output . $footer;
     }
 
 } else {
-    $login = new LoginController();
-
-    if ($action == "login") {
-        $output = $login->login();
-        $header = $smarty->fetch("inc/header.tpl");
-        $menu = $smarty->fetch("inc/menu.tpl");
-        $footer = $smarty->fetch("inc/footer.tpl");
-
-        $output = $header . $menu . $output . $footer;
-    } else {
-        $output = $login->showLogin();
-    }
-
+    $output = $smarty->fetch("dashboard.tpl");
+    $output = $header . $menu . $output . $footer;
 }
 
 echo $output;

@@ -1,26 +1,39 @@
-<?php
-  class LoginController{
-      
-       function login(){
-        global $smarty;
-        $_SESSION["login"] = 1;
+<?php if (session_status() == PHP_SESSION_NONE) {
+	session_start();
+}
 
-        $ret = array("html" =>  $smarty->fetch("dashboard.tpl"));
-        
-        return json_encode($ret);;
-      }
-      
-      function showLogin(){
-        global $smarty;
+include_once "model/Member.class.php";
 
-        $ret = array("html" =>  $smarty->fetch("login.tpl"));
+class LoginController {
 
-        return $ret;
-      }
+	function login($login) {
+		global $smarty;
 
-      function  logout(){
-          session_destroy ();
-          return $this->showLogin();
-      }
-  }
+		$member = new Member();
+		$member->email = $login['email'];
+		$member->loadMemberbyEmail();
+
+		if(password_verify($login['password'], $member->password)) {
+			$_SESSION["login"] = 1;
+			header('Location: index.php');
+			exit;
+		}else{
+			header('Location: login.php');
+			exit;
+		}
+	}
+
+	function display() {
+		global $smarty;
+
+		$smarty->display("login.tpl");
+	}
+
+	function logout() {
+		session_destroy();
+		header('Location: login.php');
+		exit;
+	}
+}
+
 ?>

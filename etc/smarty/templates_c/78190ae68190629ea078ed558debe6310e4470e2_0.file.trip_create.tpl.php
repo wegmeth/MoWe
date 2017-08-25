@@ -1,3 +1,27 @@
+<?php
+/* Smarty version 3.1.30, created on 2017-08-25 13:11:55
+  from "C:\xampp\htdocs\view\trip_create.tpl" */
+
+/* @var Smarty_Internal_Template $_smarty_tpl */
+if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
+  'version' => '3.1.30',
+  'unifunc' => 'content_59a005fbd2e810_82660492',
+  'has_nocache_code' => false,
+  'file_dependency' => 
+  array (
+    '78190ae68190629ea078ed558debe6310e4470e2' => 
+    array (
+      0 => 'C:\\xampp\\htdocs\\view\\trip_create.tpl',
+      1 => 1503659392,
+      2 => 'file',
+    ),
+  ),
+  'includes' => 
+  array (
+  ),
+),false)) {
+function content_59a005fbd2e810_82660492 (Smarty_Internal_Template $_smarty_tpl) {
+?>
 <div class="container">
     <div class="row">
         <div class="col s12">
@@ -31,7 +55,8 @@
         </div>
     </div>
 </div>
-<script>
+<?php echo '<script'; ?>
+>
 
     $('.datepicker').pickadate({
         selectMonths: true, // Creates a dropdown to control month
@@ -41,4 +66,7 @@
         closeOnSelect: false // Close upon selecting a date,
     });
 
-</script>
+<?php echo '</script'; ?>
+>
+<?php }
+}

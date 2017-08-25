@@ -7,7 +7,7 @@
  */
 
 class ImpressController{
-    function show(){
+    function display(){
         return "ImpressController";
     }
 }

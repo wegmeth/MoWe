@@ -1,7 +1,5 @@
 <?php
 
-
-
 class Database{
 
     public $db_dsn = 'mysql:host=localhost;dbname=triptool';

@@ -1,7 +1,7 @@
 <div>
     <div class="nav-wrapper">
         <ul class="side-nav fixed" id="slide-out">
-            <li><a href="index.php#trip/display" class="link">Trips</a></li>
+            <li><a href="index.php#trip/displayList" class="link">Trips</a></li>
             <li><a href="index.php#trip/newTrip" class="link">Neuen Trip planen</a></li>
             <li><a href="index.php#profile/display" class="link">Profil</a></li>
             <li><a href="index.php#impress/display" class="link">Impressum</a></li>

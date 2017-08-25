@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2017-08-25 13:11:55
+/* Smarty version 3.1.30, created on 2017-08-25 15:25:29
   from "C:\xampp\htdocs\view\trip_create.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_59a005fbd2e810_82660492',
+  'unifunc' => 'content_59a0254966c161_58319458',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '78190ae68190629ea078ed558debe6310e4470e2' => 
     array (
       0 => 'C:\\xampp\\htdocs\\view\\trip_create.tpl',
-      1 => 1503659392,
+      1 => 1503667527,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_59a005fbd2e810_82660492 (Smarty_Internal_Template $_smarty_tpl) {
+function content_59a0254966c161_58319458 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <div class="container">
     <div class="row">
@@ -32,19 +32,19 @@ function content_59a005fbd2e810_82660492 (Smarty_Internal_Template $_smarty_tpl)
         <div class="col s12">
             <form action="index.php#trip/create" method="POST">
                 <div class="input-field col s12">
-                    <input placeholder="Titel" name="trip[title]" type="text" class="validate">
+                    <input placeholder="Titel" name="title" type="text" class="validate">
                     <label>Titel</label>
                 </div>
                 <div class="input-field col s6">
-                    <input placeholder="Los am" name="trip[startDate]" type="text" class="validate datepicker">
+                    <input placeholder="Los am" name="startDate]" type="text" class="validate datepicker">
                     <label>Es geht los am</label>
                 </div>
                 <div class="input-field col s6">
-                    <input placeholder="Zurück am" name="trip[endDate]" type="text" class="validate datepicker">
+                    <input placeholder="Zurück am" name="endDate" type="text" class="validate datepicker">
                     <label for="first_name">Zurück am</label>
                 </div>
                 <div class="input-field col s4">
-                    <input placeholder="Wo geht es hin?" name="trip[destination]" type="text" class="validate">
+                    <input placeholder="Wo geht es hin?" name="destination" type="text" class="validate">
                     <label for="dest">Wo geht es hin?</label>
                 </div>
                 <div id="mapdiv" class="col s8"></div>

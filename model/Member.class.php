@@ -64,7 +64,6 @@ class Member {
 	function getAll() {
 		$sql = "SELECT * FROM member";
 
-		$sql = "SELECT * FROM member where id=?";
 		$statement = $this->pdo->prepare($sql);
 		$statement->execute();
 

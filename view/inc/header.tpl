@@ -14,3 +14,7 @@
 
 </head>
 <body>
+<header>
+    {include file='inc/menu.tpl'}
+</header>
+<main></main>

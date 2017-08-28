@@ -1,7 +1,9 @@
-<div class="container">
-    <div class="row">
-        <div class="col s12">
-            dashboard
+<main>
+    <div class="container">
+        <div class="row">
+            <div class="col s12">
+                Dashboard
+            </div>
         </div>
     </div>
-</div>
+</main>

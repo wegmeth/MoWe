@@ -7,8 +7,7 @@ class TripController{
     function displayList(){
         global $smarty;
 
-		$trips = Trip::getAll();
-
+		$trips = Trip::getByUserId();
 	    $smarty->assign("trips",$trips);
 
         return $smarty->fetch("trip_list.tpl");
@@ -22,21 +21,27 @@ class TripController{
     	$trip = new Trip();
 		$trip->destination = $data['destination'];
 	    $trip->title = $data['title'];
-	    $trip->dateStart = $data['startDate'];
-	    $trip->dateEnd = $data['endDate'];
+
+        $tmp = DateTime::createFromFormat("d.m.Y",  $data['startDate']);
+	    $trip->dateStart = $tmp->getTimestamp();
+
+        $tmp = DateTime::createFromFormat("d.m.Y",$data['endDate']);
+	    $trip->dateEnd = $tmp->getTimestamp();
 
 	    $lastId =  $trip->save();
 
     	return $this->display($lastId);
     }
 
-	function display($id){
-		global $smarty;
+	function display($id = -1){
+        global $smarty;
+
+        if(!is_numeric($id)){
+            $id= $_POST["id"];
+        }
 
 		$trip =new Trip();
 		$trip->loadById($id);
-
-		print_r($trip);
 
 		$smarty->assign("trip",$trip);
 

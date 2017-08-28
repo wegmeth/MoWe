@@ -9,7 +9,9 @@
 class Dashboard{
 
     function show(){
-        return "dashboard";
+        global $smarty;
+
+        return $smarty->fetch("dashboard.tpl");
     }
 
 }

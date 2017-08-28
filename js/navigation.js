@@ -45,11 +45,17 @@ $(function() {
         var link = $( event.target );
 
         var hashString = link.attr('href').split("#")[1];
-        var ns = hashString.split("/")[0];
-        var action= hashString.split("/")[1];
-        var id = hashString.split("/")[2];
+        var arr =  hashString.split("/");
 
-        data = {namespace:ns,action:action, ajax:true};
+        var ns = arr[0];
+        var action= arr[1];
+
+        if(arr.length > 2){
+            var id = arr[2];
+            data = {namespace:ns,action:action,id:id, ajax:true};
+        }else{
+            data = {namespace:ns,action:action, ajax:true};
+        }
 
         $.ajax({
             type: "POST",

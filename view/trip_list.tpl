@@ -1,5 +1,9 @@
 <div class="container">
+    <div class="row">
+        <div col s12>
     <h1>Geplante Trips</h1>
+        </div>
+
     <div class="row">
         <div col s12>
             <table class="highlight centered striped">

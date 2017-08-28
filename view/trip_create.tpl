@@ -12,7 +12,7 @@
                     <label>Titel</label>
                 </div>
                 <div class="input-field col s6">
-                    <input placeholder="Los am" name="startDate]" type="text" class="validate datepicker">
+                    <input placeholder="Los am" name="startDate" type="text" class="validate datepicker">
                     <label>Es geht los am</label>
                 </div>
                 <div class="input-field col s6">
@@ -37,6 +37,7 @@
         selectMonths: true, // Creates a dropdown to control month
         selectYears: 15, // Creates a dropdown of 15 years to control year,
         today: 'Heute',
+        format: 'dd.mm.yyyy',
         close: 'Ok',
         closeOnSelect: false // Close upon selecting a date,
     });

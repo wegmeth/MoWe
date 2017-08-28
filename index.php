@@ -15,7 +15,6 @@ $smarty->setCacheDir('etc/smarty/cache');
 $smarty->setConfigDir('etc/smarty/configs');
 
 $header = $smarty->fetch("inc/header.tpl");
-$menu = $smarty->fetch("inc/menu.tpl");
 $footer = $smarty->fetch("inc/footer.tpl");
 
 if (!isset($_SESSION["login"])) {
@@ -34,12 +33,12 @@ if (isset($_POST["action"]) && isset($_POST["namespace"])) {
     $output = call_user_func_array(array($object, $action), $_POST);
 
     if (!isset($_POST["ajax"])) {
-        $output = $header . $menu . $output . $footer;
+        $output = $header . $output . $footer;
     }
 
 } else {
     $output = $smarty->fetch("dashboard.tpl");
-    $output = $header . $menu . $output . $footer;
+    $output = $header .  $output . $footer;
 }
 
 echo $output;

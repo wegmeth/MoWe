@@ -11,8 +11,19 @@ CREATE TABLE IF NOT EXISTS Member (
 
 CREATE TABLE IF NOT EXISTS Trip (
   id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+<<<<<<< HEAD
   title VARCHAR(255) NOT NULL,
   destination VARCHAR(255) NOT NULL,
   dateStart TIMESTAMP NOT NULL,
   dateEnd TIMESTAMP NOT NULL
 );
+=======
+  member_id INT(6) UNSIGNED NOT NULL,
+  title VARCHAR(50) NOT NULL,
+  start_date DATE NOT NULL,
+  end_date DATE NOT NULL,
+  destination VARCHAR(50) NOT NULL
+);
+
+ALTER TABLE Trip ADD CONSTRAINT member_fk FOREIGN KEY (member_id) REFERENCES Member(id);
+>>>>>>> a412f7c19e5f03960d8d412a2d86bdd3872d9d6f

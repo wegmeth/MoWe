@@ -41,7 +41,7 @@ else {
 	}
 }
 
-include("register.html");
+include("view/register.tpl");
 
 ?>
 

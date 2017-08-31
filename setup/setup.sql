@@ -19,7 +19,9 @@ CREATE TABLE `member_trip` (
 CREATE TABLE `trip` (
   `id` int(6) UNSIGNED NOT NULL,
   `title` varchar(255) NOT NULL,
-  `destination` varchar(255) NOT NULL,
+  `country` varchar(255) NOT NULL,
+  `city` varchar(255) NOT NULL,
+  `postalcode` varchar(255) NOT NULL,
   `dateStart` varchar(255) NOT NULL,
   `dateEnd` varchar(255) NOT NULL
 );

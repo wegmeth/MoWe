@@ -5,7 +5,7 @@ require_once("Database.class.php");
 
 class Member {
 
-	private $id;
+    public $id;
 	public $name;
 	public $email;
 	public $password;

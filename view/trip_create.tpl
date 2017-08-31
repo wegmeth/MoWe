@@ -19,11 +19,10 @@
                     <input placeholder="Zurück am" name="endDate" type="text" class="validate datepicker">
                     <label for="first_name">Zurück am</label>
                 </div>
-                <div class="input-field col s4">
+                <div class="input-field col s12">
                     <input placeholder="Wo geht es hin?" name="destination" type="text" class="validate">
                     <label for="dest">Wo geht es hin?</label>
                 </div>
-                <div id="mapdiv" class="col s8"></div>
                 <div class="input-field col s12">
                     <input value="Erstellen" id="endDate" type="submit"  class="waves-effect waves-light btn">
                 </div>

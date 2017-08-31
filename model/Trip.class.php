@@ -3,23 +3,48 @@
 require_once("Database.class.php");
 require_once("MemberTrip.class.php");
 
-class Trip
-{
+class Trip {
 
+    public $id;
     public $title;
     public $dateStart;
     public $dateEnd;
     public $destination;
     private $pdo;
 
-    function __construct()
-    {
+    function __construct() {
         $db = new Database();
         $this->pdo = $db->connect();
     }
 
-    public static function getAll()
-    {
+    function getMembers() {
+        $sql = "SELECT member.* from member, member_trip  WHERE member_trip.id_trip = ? AND member_trip.id_member = member.id ";
+
+        $statement = $this->pdo->prepare($sql);
+
+        $statement->bindParam(1, $this->id, PDO::PARAM_INT);
+
+        if ($statement->execute()) {
+
+            while ($row = $statement->fetch()) {
+                $mem = new Member();
+                $mem->id = $row['id'];
+                $mem->name = $row['name'];
+                $mem->email = $row['email'];
+                $mem->password = $row['password'];
+
+                $arr[$row['id']] = $mem;
+            }
+            return $arr;
+
+        } else {
+            echo "SQL Error <br />";
+            echo $statement->queryString . "<br />";
+            echo $statement->errorInfo()[2];
+        }
+    }
+
+    public static function getAll() {
 
         $userId = $_SESSION["login"];
 
@@ -48,8 +73,7 @@ class Trip
     }
 
 
-    public static function getByUserId()
-    {
+    public static function getByUserId() {
 
         $userId = $_SESSION["login"];
 
@@ -65,20 +89,20 @@ class Trip
         $arr = [];
 
         while ($row = $statement->fetch()) {
-            $mem = new Trip();
-            $mem->id = $row['id'];
-            $mem->title = $row['title'];
-            $mem->dateEnd = $row['dateEnd'];
-            $mem->dateStart = date("d.m.Y", $row['dateStart']);
-            $mem->destination = $row['destination'];
+            $trip = new Trip();
+            $trip->id = $row['id'];
+            $trip->title = $row['title'];
+            $trip->dateEnd = $row['dateEnd'];
+            $trip->dateStart = date("d.m.Y", $row['dateStart']);
+            $trip->destination = $row['destination'];
 
-            $arr[$row['id']] = $mem;
+            $arr[$row['id']] = $trip;
         }
 
         return $arr;
     }
 
-    function loadById($id){
+    function loadById($id) {
 
         $sql = "SELECT * FROM trip WHERE id=?";
 
@@ -100,8 +124,7 @@ class Trip
         }
     }
 
-    function save()
-    {
+    function save() {
 
         $userId = $_SESSION["login"];
 

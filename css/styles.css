@@ -4,6 +4,24 @@
     }
 }
 
+#slide-out > li.logo > a > img{
+    width:100%;
+}
+
+ #slide-out > li.logo > a:hover{
+     background-color:#fff;
+ }
+
+#slide-out > li.logo > a{
+    height:115px;
+}
+.member-card{
+    text-align: center;
+    padding-bottom:5px;
+    padding-top:5px;
+    color:#fff;
+}
+
 body{
     display: flex;
     flex-direction: column;

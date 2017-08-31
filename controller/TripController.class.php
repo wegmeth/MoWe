@@ -1,6 +1,7 @@
 <?php
 
 include_once "model/Trip.class.php";
+include_once "model/MemberTrip.class.php";
 
 class TripController{
 
@@ -42,8 +43,10 @@ class TripController{
 
 		$trip =new Trip();
 		$trip->loadById($id);
-
 		$smarty->assign("trip",$trip);
+
+		$members = $trip->getMembers();
+        $smarty->assign("members",$members);
 
 		return $smarty->fetch("trip_display.tpl");
 	}

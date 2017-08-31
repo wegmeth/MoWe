@@ -6,6 +6,7 @@ require('controller/LoginController.class.php');
 require('controller/TripController.class.php');
 require('controller/ProfileController.class.php');
 require('controller/ImpressController.class.php');
+require('controller/AjaxController.class.php');
 
 $smarty = new Smarty();
 

@@ -26,9 +26,7 @@ class MemberTrip{
         $statement->bindParam(3, $this->rightLevel, PDO::PARAM_INT);
 
         if ($statement->execute()) {
-
             return $this->pdo->lastInsertId();
-
         } else {
             echo "SQL Error <br />";
             echo $statement->queryString . "<br />";

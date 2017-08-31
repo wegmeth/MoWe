@@ -39,7 +39,7 @@ body{
 .header{
     background-size:cover;
     min-height: 12em;
-    
+
 }
 
 .content{
@@ -51,8 +51,8 @@ body{
 }
 
 #nav{
-    
-    background-color: #ccc;            
+
+    background-color: #ccc;
     flex: 0 0 12em;
 }
 

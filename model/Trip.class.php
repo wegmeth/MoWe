@@ -9,7 +9,12 @@ class Trip {
     public $title;
     public $dateStart;
     public $dateEnd;
-    public $destination;
+
+    public $country;
+	public $postalcode;
+	public $city;
+
+
     private $pdo;
 
     function __construct() {
@@ -59,14 +64,17 @@ class Trip {
         $arr = [];
 
         while ($row = $statement->fetch()) {
-            $mem = new Trip();
-            $mem->id = $row['id'];
-            $mem->title = $row['title'];
-            $mem->dateEnd = $row['dateEnd'];
-            $mem->dateStart = date("d.m.Y", $row['dateStart']);
-            $mem->destination = $row['destination'];
+	        $trip = new Trip();
+	        $trip->id = $row['id'];
+	        $trip->title = $row['title'];
+	        $trip->dateEnd = $row['dateEnd'];
+	        $trip->dateStart = date("d.m.Y", $row['dateStart']);
 
-            $arr[$row['id']] = $mem;
+	        $trip -> postalcode= $row['postalcode'];
+	        $trip->city= $row['city'];
+	        $trip->country= $row['country'];
+
+            $arr[$row['id']] = $trip;
         }
 
         return $arr;
@@ -94,7 +102,10 @@ class Trip {
             $trip->title = $row['title'];
             $trip->dateEnd = $row['dateEnd'];
             $trip->dateStart = date("d.m.Y", $row['dateStart']);
-            $trip->destination = $row['destination'];
+
+	        $trip -> postalcode= $row['postalcode'];
+	        $trip->city= $row['city'];
+	        $trip->country= $row['country'];
 
             $arr[$row['id']] = $trip;
         }
@@ -116,7 +127,10 @@ class Trip {
             $this->title = $row['title'];
             $this->dateStart = date("d.m.Y", $row['dateStart']);
             $this->dateEnd = date($row['dateEnd']);
-            $this->destination = $row['destination'];
+
+	        $this -> postalcode= $row['postalcode'];
+	        $this->city= $row['city'];
+	        $this->country= $row['country'];
         } else {
             echo "SQL Error <br />";
             echo $statement->queryString . "<br />";
@@ -128,14 +142,17 @@ class Trip {
 
         $userId = $_SESSION["login"];
 
-        $sql = "INSERT INTO trip (title,dateStart,dateEnd,destination) VALUES (?,?,?,?)";
+        $sql = "INSERT INTO trip (title,dateStart,dateEnd,postalcode,city,country) VALUES (?,?,?,?,?,?)";
 
         $statement = $this->pdo->prepare($sql);
 
         $statement->bindParam(1, $this->title, PDO::PARAM_STR);
         $statement->bindParam(2, $this->dateStart, PDO::PARAM_STR);
         $statement->bindParam(3, $this->dateEnd, PDO::PARAM_STR);
-        $statement->bindParam(4, $this->destination, PDO::PARAM_STR);
+
+	    $statement->bindParam(4, $this->postalcode, PDO::PARAM_STR);
+	    $statement->bindParam(5, $this->city, PDO::PARAM_STR);
+	    $statement->bindParam(6, $this->country, PDO::PARAM_STR);
 
         $statement->execute() or die(print_r($statement->errorInfo(), true));
         $lastId = $this->pdo->lastInsertId();

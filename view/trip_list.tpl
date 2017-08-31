@@ -18,7 +18,7 @@
             {foreach $trips as $trip}
                 <tr>
                     <td><a class="link" href="#trip/display/{$trip->id}">{$trip->title}</a></td>
-                    <td>{$trip->destination}</td>
+                    <td>{$trip->city}</td>
                     <td>{$trip->dateStart}</td>
                 </tr>
             {/foreach}

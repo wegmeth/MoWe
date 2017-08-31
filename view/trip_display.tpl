@@ -6,7 +6,7 @@
     </div>
     <div class="row">
         <div class="col s4">
-            <b>Wohin:</b> {$trip->destination}
+            <b>Wohin:</b> {$trip->city} - {$trip->postalcode} - {$trip->country}
         </div>
         <div class="col s4">
             <b>Wann:</b> {$trip->dateStart}
